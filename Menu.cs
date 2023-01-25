@@ -10,10 +10,19 @@ namespace studia_programowanie_obietkowe_zaliczenie
             // Kod do wyszukania dań po nazwie
         }
 
-        public List<Danie> FiltrujPoKategorii(string kategoria)
+        public List<Kategoria> Kategorie { get; set; }
+        public void DodajKategorie(Kategoria kategoria)
         {
-            // Kod do filtrowania dań po kategorii
+            Kategorie.Add(kategoria);
         }
-    }
+        public void UsunKategorie(Kategoria kategoria)
+        {
+            Kategoria.Remove(kategoria);
+        }
+        public List<Kategoria>
+            WyswietlKategorie()
+        {
+            return Kategorie;
+        }
 }
 
