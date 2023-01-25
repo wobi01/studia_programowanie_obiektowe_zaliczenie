@@ -6,47 +6,47 @@ using System.Threading.Tasks;
 
 namespace studia_programowanie_obietkowe_zaliczenie
 {
-    internal class Zamow
+    internal class Order
     {
-        private List<Danie> pozycje;
-        private double suma;
+        private List<Dish> positions;
+        private double sum;
 
-        public Zamow()
+        public Order()
         {
-            pozycje = new List<Danie>();
-            suma = 0;
+            positions = new List<Dish>();
+            sum = 0;
         }
 
-        public void DodajPozycje(Danie d){
-            pozycje.Add(d);
-            suma += d.Cena;
+        public void AddPosition(Dish d){
+            positions.Add(d);
+            sum += d.Price;
         }
         
-        public void Podsumowanie()
+        public void Summary()
         {
             Console.WriteLine("Podsumowanie: ");
-            foreach(Danie d in pozycje)
+            foreach(Dish d in positions)
             {
-                Console.WriteLine(d.Nazwa + " - " + d.Cena + " zł");
+                Console.WriteLine(d.Name + " - " + d.Price + " zł");
             }
-            Console.WriteLine("Cena całkowita zamówienia: " + suma + " zł");
+            Console.WriteLine("Cena całkowita zamówienia: " + sum + " zł");
         }
 
-        public void Potwierdzenie()
+        public void Confirmation()
         {
             Console.WriteLine("Czy zamówienie się zgadza i chcesz je potwierdzić? Odpowiedz 'Tak' lub 'Nie': ");
-            string wybor = Console.ReadLine();
-            if(wybor.ToLower() == "tak")
+            string choice = Console.ReadLine();
+            if(choice.ToLower() == "tak")
             {
                 Console.WriteLine("Zamówienie złożone, utworzono plik .txt z rachunkiem, Smacznego!");
                 using (StreamWriter writer = new StreamWriter("rachunek.txt"))
                 {
                     writer.WriteLine("Podsumowanie: ");
-                    foreach (Danie d in pozycje)
+                    foreach (Dish d in positions)
                     {
-                        Console.WriteLine(d.Nazwa + " - " + d.Cena + " zł");
+                        Console.WriteLine(d.Name + " - " + d.Price + " zł");
                     }
-                    Console.WriteLine("Cena całkowita zamówienia: " + suma + " zł");
+                    Console.WriteLine("Cena całkowita zamówienia: " + sum + " zł");
                 }
             }
             else

@@ -4,24 +4,24 @@ namespace studia_programowanie_obietkowe_zaliczenie
     public class Menu
     {
 
-        public List<Danie> WyszukajPoNazwie(string nazwa)
+        public List<Dish> SearchByName(string name)
         {
-            // Kod do wyszukania dań po nazwie
+            // Code for searching dish by name
         }
 
-        public List<Kategoria> Kategoria { get; set; }
-        public void DodajKategorie(Kategoria kategoria)
+        public List<Categories> Category { get; set; }
+        public void AddCategory(Categories Category)
         {
-            Kategorie.Add(kategoria);
+            Category.Add(Category);
         }
-        public void UsunKategorie(Kategoria kategoria)
+        public void DeleteCategory(Categories Category)
         {
-            Kategoria.Remove(kategoria);
+            Category.Remove(Category);
         }
-        public List<Kategoria>
-            WyswietlKategorie()
+        public List<Categories>
+            ShowCategories()
         {
-            return Kategorie;
+            return Categories;
         }
     }
 }

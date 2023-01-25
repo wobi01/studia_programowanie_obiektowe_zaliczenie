@@ -9,28 +9,28 @@ class Program
         _menu = new Menu();
     }
 
-    public void DodajDanie()
+    public void AddDish()
     {
-        // Kod do dodawania nowego dania z interakcją z użytkownikiem
+        // Interaction with user to add dish
     }
 
-    public void UsunDanie()
+    public void DeleteDish()
     {
-        // Kod do usuwania dania z interakcją z użytkownikiem
+        // Interaction with user to delete dish
     }
 
-    public void WyswietlMenu()
+    public void ShowMenu()
     {
-        // Kod do wyświetlania menu restauracji
+        // Display menu for user
     }
 
-    public void WyszukajDanie()
+    public void SearchForDish()
     {
-        // Kod do wyszukiwania dań z interakcją z użytkownikiem
+        // Interaction with user to search for dish
     }
 
-    public void FiltrujMenu()
+    public void FiltrMenu()
     {
-        // Kod do filtrowania menu restauracji z interakcją z użytkownikiem
+        // Interaction with user to filter displayed menu
     }
 }
