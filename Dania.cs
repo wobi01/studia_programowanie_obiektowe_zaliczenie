@@ -39,9 +39,19 @@ namespace studia_programowanie_obietkowe_zaliczenie
             }
         }
 
-        public void Wyswietl()
+        public void WyswietlDania()
         {
-            // Kod do wyświetlania dania
+            if(listaDan.Count == 0)
+            {
+                Console.WriteLine("Brak dań.");
+            }
+            else
+            {
+                Console.WriteLine("Oto lista dań: ");
+                foreach(Danie d in listaDan) {
+                    Console.WriteLine(d.Nazwa + " - " + d.Cena + " zł");
+                }
+            }
         }
     }
 }
