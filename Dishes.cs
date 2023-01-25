@@ -67,4 +67,24 @@ namespace studia_programowanie_obietkowe_zaliczenie
             }
         }
     }
+
+    public class FishDish : Dish
+    {
+        public FishDish() { }
+    }
+
+    public class Soup : Dish
+    {
+        public Soup() { }
+    }
+
+    public class MeatDish : Dish
+    {
+        public MeatDish() { }
+    }
+
+    public class Starter : Dish
+    {
+        public Starter() { }
+    }
 }
