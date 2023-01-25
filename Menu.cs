@@ -1,13 +1,13 @@
 ﻿using System;
 namespace studia_programowanie_obietkowe_zaliczenie
 {
-	public class Menu
-	{
+    public class Menu
+    {
 
-        public List<Danie> WyszukajPoNazwie(string nazwa)
-        {
+       // public List<Danie> WyszukajPoNazwie(string nazwa)
+        //{
             // Kod do wyszukania dań po nazwie
-        }
+        //}
 
         public List<Kategoria> Kategorie { get; set; }
         public void DodajKategorie(Kategoria kategoria)
@@ -23,5 +23,6 @@ namespace studia_programowanie_obietkowe_zaliczenie
         {
             return Kategorie;
         }
+    }
 }
 

@@ -11,14 +11,14 @@ namespace studia_programowanie_obietkowe_zaliczenie
         public string Nazwa { get; set; }
         public List<Danie> Dania { get; set; }
 
-        public void DodajDanie(Dania danie)
+        public void DodajDanie(Danie danie)
         {
             Dania.Add(danie);
         }
 
         public void UsunDanie(Danie danie)
         {
-            Dania.Remove(Danie);
+            Dania.Remove(danie);
         }
 
         public List<Danie>
