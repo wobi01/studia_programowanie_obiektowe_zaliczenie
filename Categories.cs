@@ -9,7 +9,7 @@ namespace studia_programowanie_obietkowe_zaliczenie
     internal class Categories
     {
         public string Name { get; set; }
-        public List<Dish> Dishes { get; set; }
+        public List<Dish>? Dishes { get; set; }
 
         public void AddDish(Dish dish)
         {
@@ -22,9 +22,6 @@ namespace studia_programowanie_obietkowe_zaliczenie
         }
 
         public List<Dish>
-        ShowDish()
-    {
-        return Dishes;
-    }
+        ShowDish() => Dishes;
     }
 }
