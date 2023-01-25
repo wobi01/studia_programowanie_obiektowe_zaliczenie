@@ -7,30 +7,28 @@ class Program
     static void Main(string[] args)
     {
         _Menu = new Menu();
+        Console.WriteLine("Wybierz co chcesz zrobić: ");
+        Console.WriteLine("1. Wyświetl menu");
+        Console.WriteLine("2. Złóż zamówienie");
+        Console.WriteLine("3. Panel administracyjny");
     }
 
-    public void AddDish()
+    public static void AskUserForAction()
     {
-        // Interaction with user to add dish
+        Console.Write("Wybór: ");
+        switch (Console.ReadLine())
+        {
+            case 1:
+                //asd
+                break;
+            case 2:
+                Order();
+                break;
+            default:
+                Console.WriteLine("Wybrano niepoprawną opcję, spróbuj ponownie");
+                AskUserForAction();
+                break;
+        }
     }
 
-    public void DeleteDish()
-    {
-        // Interaction with user to delete dish
-    }
-
-    public void ShowMenu()
-    {
-        // Display menu for user
-    }
-
-    public void SearchForDish()
-    {
-        // Interaction with user to search for dish
-    }
-
-    public void FiltrMenu()
-    {
-        // Interaction with user to filter displayed menu
-    }
 }
