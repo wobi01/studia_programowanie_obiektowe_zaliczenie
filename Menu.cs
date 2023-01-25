@@ -6,22 +6,23 @@ namespace studia_programowanie_obietkowe_zaliczenie
 
         public List<Dish> SearchByName(string name)
         {
-            // Code for searching dish by name
+            List<Dish> dishes = new List<Dish>();
+            return dishes;
         }
 
-        public List<Categories> Category { get; set; }
-        public void AddCategory(Categories Category)
+        public List<Category> Category { get; set; }
+        public void AddCategory(Category category)
         {
-            Category.Add(Category);
+            this.Category.Add(category);
         }
-        public void DeleteCategory(Categories Category)
+        public void DeleteCategory(Category category)
         {
-            Category.Remove(Category);
+            Category.Remove(category);
         }
-        public List<Categories>
+        public List<Category>
             ShowCategories()
         {
-            return Categories;
+            return Category;
         }
     }
 }

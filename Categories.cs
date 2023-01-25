@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace studia_programowanie_obietkowe_zaliczenie
 {
-    internal class Categories
+    public class Category
     {
         public string Name { get; set; }
         public List<Dish>? Dishes { get; set; }

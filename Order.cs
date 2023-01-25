@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace studia_programowanie_obietkowe_zaliczenie
 {
-    internal class Order
+    public class Order
     {
         private List<Dish> positions;
         private double sum;

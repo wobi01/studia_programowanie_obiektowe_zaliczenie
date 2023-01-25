@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace studia_programowanie_obietkowe_zaliczenie
 {
-    class Dish
+    public class Dish
     {
         public string Name { get; set; }
         public double Price { get; set; }
