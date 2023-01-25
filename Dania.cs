@@ -53,5 +53,18 @@ namespace studia_programowanie_obietkowe_zaliczenie
                 }
             }
         }
+
+        public void WyszukajDanie(string nazwa)
+        {
+            Danie znalezioneDanie = listaDan.Find(x => x.Nazwa == nazwa);
+            if(znalezioneDanie != null)
+            {
+                Console.WriteLine("Znaleziono danie: " + znalezioneDanie.Nazwa + " w cenie " + znalezioneDanie.Cena + " zł");
+            }
+            else
+            {
+                Console.WriteLine("Nie znaleziono dania o wprowadzonej nazwie: " + nazwa + " :(");
+            }
+        }
     }
 }
