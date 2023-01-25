@@ -3,7 +3,6 @@ namespace studia_programowanie_obietkowe_zaliczenie
 {
 	public class Menu
 	{
-        public List<Danie> Dania { get; set; }
 
         public List<Danie> WyszukajPoNazwie(string nazwa)
         {
