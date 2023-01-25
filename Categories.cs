@@ -13,12 +13,12 @@ namespace studia_programowanie_obietkowe_zaliczenie
 
         public void AddDish(Dish dish)
         {
-            Dish.Add(dish);
+            this.Dishes.Add(dish);
         }
 
         public void DeleteDish(Dish dish)
         {
-            Dish.Remove(dish);
+            this.Dishes.Remove(dish);
         }
 
         public List<Dish>

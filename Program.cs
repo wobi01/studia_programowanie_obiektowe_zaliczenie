@@ -4,9 +4,9 @@ class Program
 {
     private Menu _menu;
 
-    public Program()
+    static void Main(string[] args)
     {
-        _menu = new Menu();
+        _Menu = new Menu();
     }
 
     public void AddDish()
