@@ -9,7 +9,7 @@ namespace studia_programowanie_obietkowe_zaliczenie
             // Kod do wyszukania dań po nazwie
         }
 
-        public List<Kategoria> Kategorie { get; set; }
+        public List<Kategoria> Kategoria { get; set; }
         public void DodajKategorie(Kategoria kategoria)
         {
             Kategorie.Add(kategoria);
