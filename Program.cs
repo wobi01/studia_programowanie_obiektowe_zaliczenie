@@ -5,8 +5,11 @@ using System.Reflection.Metadata.Ecma335;
 
 class AdminPass
 {
-    public string adminpass = "admin";
-    public static string GetAdminPass() => adminpass;
+    public static string adminpass = "admin";
+    public static string GetAdminPass()
+    {
+        return adminpass;
+    }
 
     public static string ChangeAdminPass(string newpass)
     {
