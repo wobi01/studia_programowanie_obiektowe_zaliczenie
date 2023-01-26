@@ -89,12 +89,12 @@ static void Main(string[] args)
         switch (Console.ReadLine())
         {
             case "1":
-                //stuff to do
+                //Dish.Add();
                 Console.Clear();
                 AskUserForActionAdmin();
                 break;
             case "2":
-                //stuff to do
+                //Dish.Remove();
                 Console.Clear();
                 AskUserForActionAdmin();
                 break;
