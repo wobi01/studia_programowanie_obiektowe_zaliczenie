@@ -3,27 +3,6 @@ using System.IO;
 using System.Reflection.Metadata.Ecma335;
 
 
-class AdminPass
-{
-    public static StreamReader passfile = new StreamReader("passwd.txt");
-    public static string adminpass = passfile.ReadLine();
-
-    public static string GetAdminPass()
-    {
-        return adminpass;
-    }
-
-    public static string ChangeAdminPass(string newpass)
-    {
-        //it just cracks here
-        adminpass = newpass;
-        StreamWriter x = new StreamWriter("passwd.txt");
-        x.Write(adminpass);
-        return adminpass;
-    }
-}
-
-
 class Program
 {
     public static Menu _menu;
@@ -32,6 +11,7 @@ static void Main(string[] args)
     {
         _menu = new Menu();
         AskUserForAction();
+        AdminPass adminPass = new AdminPass();
     }
 
     public static void AskUserForAction()
@@ -57,7 +37,7 @@ static void Main(string[] args)
                 break;
             case "3":
                 Console.WriteLine("By uzyskać dostęp do panelu administratora podaj hasło (domyślne hasło to 'admin'): ");
-                if (Console.ReadLine().ToLower() == AdminPass.GetAdminPass())
+                if (Console.ReadLine().ToLower() == AdminPass.GetPasswd())
                 {
                     Console.Clear();
                     AskUserForActionAdmin();
@@ -119,7 +99,7 @@ static void Main(string[] args)
                 }
             case "4":
                 Console.WriteLine("By zmienić hasło podaj aktualnie ustawione: ");
-                if (Console.ReadLine().ToLower() == AdminPass.GetAdminPass())
+                if (Console.ReadLine().ToLower() == AdminPass.GetPasswd())
                 {
                     string newpass = "";
                     Console.WriteLine("Podaj nowe hasło: ");
@@ -127,7 +107,7 @@ static void Main(string[] args)
                     Console.WriteLine("Podaj ponownie nowe hasło by potwierdzić: ");
                     if(Console.ReadLine().ToLower() == newpass)
                     {
-                        AdminPass.ChangeAdminPass(newpass);
+                        AdminPass.UpdatePasswd(newpass);
                         Console.Clear();
                         Console.WriteLine("Hasło zostało zmienione, wylogowano z panelu administratora");
                         AskUserForAction();
