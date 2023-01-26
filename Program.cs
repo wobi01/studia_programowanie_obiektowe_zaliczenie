@@ -1,15 +1,29 @@
 ﻿using studia_programowanie_obietkowe_zaliczenie;
+using System.IO;
+using System.Reflection.Metadata.Ecma335;
+
+
+class AdminPass
+{
+    public string adminpass = "admin";
+    public static string GetAdminPass() => adminpass;
+
+    public static string ChangeAdminPass(string newpass)
+    {
+        adminpass = newpass;
+    }
+}
+
 
 class Program
 {
     public static Menu _menu;
 
-    static void Main(string[] args)
+static void Main(string[] args)
     {
         _menu = new Menu();
         AskUserForAction();
     }
-
 
     public static void AskUserForAction()
     {
@@ -34,7 +48,7 @@ class Program
                 break;
             case "3":
                 Console.WriteLine("By uzyskać dostęp do panelu administratora podaj hasło (domyślne hasło to 'admin'): ");
-                if (Console.ReadLine().ToLower() == "admin")
+                if (Console.ReadLine().ToLower() == AdminPass.GetAdminPass())
                 {
                     Console.Clear();
                     AskUserForActionAdmin();
@@ -64,7 +78,8 @@ class Program
         Console.WriteLine("1. Dodaj danie");
         Console.WriteLine("2. Usuń danie");
         Console.WriteLine("3. Wyjdź z panelu administratora");
-        Console.WriteLine("4. Zakończ program");
+        Console.WriteLine("4. Zmień hasło do panelu administratora");
+        Console.WriteLine("5. Zakończ program");
         Console.WriteLine("____________________________");
         Console.Write("Wybór: ");
         switch (Console.ReadLine())
@@ -94,6 +109,37 @@ class Program
                     break;
                 }
             case "4":
+                Console.WriteLine("By zmienić hasło podaj aktualnie ustawione: ");
+                if (Console.ReadLine().ToLower() == AdminPass.GetAdminPass())
+                {
+                    string newpass = "";
+                    Console.WriteLine("Podaj nowe hasło: ");
+                    newpass = Console.ReadLine().ToLower();
+                    Console.WriteLine("Podaj ponownie nowe hasło by potwierdzić: ");
+                    if(Console.ReadLine().ToLower() == newpass)
+                    {
+                        AdminPass.ChangeAdminPass(newpass);
+                        Console.Clear();
+                        Console.WriteLine("Hasło zostało zmienione, wylogowano z panelu administratora");
+                        AskUserForAction();
+                        break;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Hasła nie zgadzają się, anuluję zmianę hasła");
+                        AskUserForActionAdmin();
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Podano niepoprawne hasło, spróbuj ponownie");
+                    AskUserForAction();
+                    break;
+                }
+            case "5":
                 Environment.Exit(0);
                 break;
             default:
