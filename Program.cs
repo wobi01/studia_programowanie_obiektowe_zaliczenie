@@ -7,7 +7,7 @@ class AdminPass
 {
     public static StreamReader passfile = new StreamReader("passwd.txt");
     public static string adminpass = passfile.ReadLine();
-    
+
     public static string GetAdminPass()
     {
         return adminpass;
@@ -15,6 +15,7 @@ class AdminPass
 
     public static string ChangeAdminPass(string newpass)
     {
+        //it just cracks here
         adminpass = newpass;
         StreamWriter x = new StreamWriter("passwd.txt");
         x.Write(adminpass);
