@@ -14,6 +14,7 @@ class AdminPass
     public static string ChangeAdminPass(string newpass)
     {
         adminpass = newpass;
+        return adminpass;
     }
 }
 
