@@ -5,7 +5,9 @@ using System.Reflection.Metadata.Ecma335;
 
 class AdminPass
 {
-    public static string adminpass = "admin";
+    static StreamReader passfile = new StreamReader("passwd.txt");
+    public static string adminpass = passfile.ReadLine();
+    //need to close the file somehow
     public static string GetAdminPass()
     {
         return adminpass;
@@ -14,6 +16,9 @@ class AdminPass
     public static string ChangeAdminPass(string newpass)
     {
         adminpass = newpass;
+        FileStream fcreate = File.Open("passwd.txt", FileMode.Create);
+        StreamWriter x = new StreamWriter(fcreate);
+        x.Write(adminpass);
         return adminpass;
     }
 }
