@@ -36,6 +36,7 @@ static void Main(string[] args)
                 AskUserForAction();
                 break;
             case "3":
+                Console.WriteLine(AdminPass.GetPasswd());
                 Console.WriteLine("By uzyskać dostęp do panelu administratora podaj hasło (domyślne hasło to 'admin'): ");
                 if (Console.ReadLine().ToLower() == AdminPass.GetPasswd())
                 {
