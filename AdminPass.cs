@@ -12,15 +12,6 @@ class AdminPass
 
     public AdminPass()
     {
-       /* if (!File.Exists(filePath))
-        {
-            File.WriteAllText(filePath, "admin");
-            adminpass = "admin";
-        }
-        else
-        {
-            adminpass = File.ReadAllText(filePath);
-        } */
     }
 
     public static void UpdatePasswd(string newWord)
