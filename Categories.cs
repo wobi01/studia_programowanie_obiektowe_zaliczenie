@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static studia_programowanie_obietkowe_zaliczenie.Dish;
 
 namespace studia_programowanie_obietkowe_zaliczenie
 {
@@ -11,17 +12,42 @@ namespace studia_programowanie_obietkowe_zaliczenie
         public string Name { get; set; }
         public List<Dish>? Dishes { get; set; }
 
-        public void AddDish(Dish dish)
+        public void AddDish(DishType type, string name, double price)
         {
-            this.Dishes.Add(dish);
+            Dish dish;
+            switch (type)
+            {
+                case DishType.Fish:
+                    dish = new FishDish();
+                    dish.Name = name;
+                    dish.Price = price;
+                    break;
+                case DishType.Soup:
+                    dish = new Soup();
+                    dish.Name = name;
+                    dish.Price = price;
+                    break;
+                case DishType.Meat:
+                    dish = new MeatDish();
+                    dish.Name = name;
+                    dish.Price = price;
+                    break;
+                case DishType.Starter:
+                    dish = new Starter();
+                    dish.Name = name;
+                    dish.Price = price;
+                    break;
+            }
         }
 
-        public void DeleteDish(Dish dish)
+        public void DeleteDish(string name)
         {
-            this.Dishes.Remove(dish);
+            Dishes.Remove(Dishes.Where(x => x.Name == name).ToList().First());
         }
 
-        public List<Dish>
-        ShowDish() => Dishes;
+        public string GetDishes()
+        {
+
+        }
     }
 }

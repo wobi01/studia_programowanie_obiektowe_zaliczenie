@@ -18,9 +18,10 @@ static void Main(string[] args)
     {
         Console.WriteLine("Wybierz co chcesz zrobić: ");
         Console.WriteLine("1. Wyświetl menu");
-        Console.WriteLine("2. Złóż zamówienie");
-        Console.WriteLine("3. Panel administracyjny");
-        Console.WriteLine("4. Zakończ program");
+        Console.WriteLine("2. Wyszukaj danie");
+        Console.WriteLine("3. Złóż zamówienie");
+        Console.WriteLine("4. Panel administracyjny");
+        Console.WriteLine("5. Zakończ program");
         Console.WriteLine("____________________________________________");
         Console.Write("Wybór: ");
         switch (Console.ReadLine())
@@ -36,6 +37,11 @@ static void Main(string[] args)
                 AskUserForAction();
                 break;
             case "3":
+                //stuff to do
+                Console.Clear();
+                AskUserForAction();
+                break;
+            case "4":
                 Console.WriteLine("By uzyskać dostęp do panelu administratora podaj hasło (domyślne hasło to 'admin'): ");
                 if (Console.ReadLine().ToLower() == AdminPass.GetPasswd())
                 {
@@ -50,7 +56,7 @@ static void Main(string[] args)
                     AskUserForAction();
                     break;
                 }
-            case "4":
+            case "5":
                 Environment.Exit(0);
                 break;
             default:

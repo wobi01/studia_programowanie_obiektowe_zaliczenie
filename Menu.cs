@@ -1,13 +1,32 @@
 ﻿using System;
 namespace studia_programowanie_obietkowe_zaliczenie
 {
+   // 
+
     public class Menu
     {
+        List<Dish> dishList = new List<Dish>();
 
         public List<Dish> SearchByName(string name)
         {
-            List<Dish> dishes = new List<Dish>();
-            return dishes;
+            List<Dish> dishList = new List<Dish>();
+            return dishList;
+        }
+
+        public void ShowDishes()
+        {
+            if (dishList.Count == 0)
+            {
+                Console.WriteLine("Brak dań.");
+            }
+            else
+            {
+                Console.WriteLine("Oto lista dań: ");
+                foreach (Dish d in dishList)
+                {
+                    Console.WriteLine(d.Name + " - " + d.Price + " zł");
+                }
+            }
         }
 
         public List<Category> Category { get; set; }
