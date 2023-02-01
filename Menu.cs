@@ -1,7 +1,6 @@
 ﻿using System;
 namespace studia_programowanie_obietkowe_zaliczenie
 {
-   // 
 
     public class Menu
     {
