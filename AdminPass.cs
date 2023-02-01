@@ -6,20 +6,12 @@ using System.Threading.Tasks;
 using System.IO;
 class AdminPass
 {
-    public static string filePath = "passwd.txt";
-    public static string adminpass = "";
+    public static string fileName = "passwd.txt";
+    public static string filePath = Path.Combine(Environment.CurrentDirectory, fileName);
+    public static string adminpass = File.ReadAllText(filePath);
 
     public AdminPass()
     {
-        if (!File.Exists(filePath))
-        {
-            File.WriteAllText(filePath, "admin");
-            adminpass = "admin";
-        }
-        else
-        {
-            adminpass = File.ReadAllText(filePath);
-        }
     }
 
     public static void UpdatePasswd(string newWord)

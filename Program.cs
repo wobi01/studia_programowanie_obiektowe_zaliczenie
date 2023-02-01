@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 
 class Program
 {
-    public static Menu _menu;
+    public static Menu? _menu;
 
 static void Main(string[] args)
     {
