@@ -1,46 +1,59 @@
 ﻿using System;
+using System.Xml.Linq;
+using System.IO;
+using System.Collections.Generic;
+
 namespace studia_programowanie_obietkowe_zaliczenie
 {
 
     public class Menu
     {
-        List<Dish> dishList = new List<Dish>();
+        public List<Category> categories = new List<Category>();
 
-        public List<Dish> SearchByName(string name)
+        public List<string> SearchByName(string name)
         {
-            List<Dish> dishList = new List<Dish>();
-            return dishList;
-        }
-
-        public void ShowDishes()
-        {
-            if (dishList.Count == 0)
+            List<string> result = new List<string>();
+            foreach (Category c in categories)
             {
-                Console.WriteLine("Brak dań.");
-            }
-            else
-            {
-                Console.WriteLine("Oto lista dań: ");
-                foreach (Dish d in dishList)
+                foreach (Dish d in c.Dishes)
                 {
-                    Console.WriteLine(d.Name + " - " + d.Price + " zł");
+                    if (d.Name.Contains(name))
+                        result.Add(String.Format("{0} - {1} zł\n", d.Name, Convert.ToString(d.Price)));
                 }
             }
+            if (result.Count == 0)
+            {
+                Console.Write("Brak dania o podanej nazwie.\n");
+            }
+            return result;
+        }
+        public void AddCategory(string CategoryName, List<Dish> Dishes)
+        {
+            Category c = new Category(CategoryName);
+            foreach (Dish dish in Dishes)
+            {
+                c.AddDish(dish);
+            }
+            categories.Add(c);
         }
 
-        public List<Category> Category { get; set; }
         public void AddCategory(Category category)
         {
-            this.Category.Add(category);
+            categories.Add(category);
         }
-        public void DeleteCategory(Category category)
+        public void DeleteCategory(string name)
         {
-            Category.Remove(category);
+            categories.Remove(categories.Where(x => x.Name == name).ToList().First());
         }
-        public List<Category>
-            ShowCategories()
+
+        public string[] GetCategories()
         {
-            return Category;
+            string[] list = new string[categories.Count];
+            for (int index = 0; index < categories.Count; index++)
+            {
+                list[index] = (index + 1) + ". " + categories[index].Name;
+            }
+            return list;
         }
     }
 }

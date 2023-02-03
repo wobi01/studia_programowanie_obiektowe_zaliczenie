@@ -17,42 +17,51 @@ namespace studia_programowanie_obietkowe_zaliczenie
             sum = 0;
         }
 
-        public void AddPosition(Dish d){
+        public void AddPosition(Dish d)
+        {
             positions.Add(d);
             sum += d.Price;
         }
-        
+
+        public void RemovePosition(int d)
+        {
+            sum -= positions[d - 1].Price;
+            positions.RemoveAt(d - 1);
+        }
+
         public void Summary()
         {
-            Console.WriteLine("Podsumowanie: ");
-            foreach(Dish d in positions)
+            int i = 1;
+            Console.WriteLine("Zamówienie: ");
+            foreach (Dish d in positions)
             {
-                Console.WriteLine(d.Name + " - " + d.Price + " zł");
+                Console.WriteLine(i + ". " + d.Name + " - " + d.Price + " zł");
+                i++;
             }
             Console.WriteLine("Cena całkowita zamówienia: " + sum + " zł");
         }
 
         public void Confirmation()
         {
-            Console.WriteLine("Czy zamówienie się zgadza i chcesz je potwierdzić? Odpowiedz 'Tak' lub 'Nie': ");
-            string choice = Console.ReadLine();
-            if(choice.ToLower() == "tak")
+            Console.Clear();
+            Console.WriteLine("Zamówienie złożone, utworzono plik .txt z rachunkiem, Smacznego!");
+            using (StreamWriter writer = new StreamWriter("rachunek.txt"))
             {
-                Console.WriteLine("Zamówienie złożone, utworzono plik .txt z rachunkiem, Smacznego!");
-                using (StreamWriter writer = new StreamWriter("rachunek.txt"))
+                writer.WriteLine("Oto twoje zamówienie: ");
+                foreach (Dish d in positions)
                 {
-                    writer.WriteLine("Podsumowanie: ");
-                    foreach (Dish d in positions)
-                    {
-                        Console.WriteLine(d.Name + " - " + d.Price + " zł");
-                    }
-                    Console.WriteLine("Cena całkowita zamówienia: " + sum + " zł");
+                    writer.WriteLine(d.Name + " - " + d.Price + " zł");
                 }
+                writer.WriteLine("Cena całkowita zamówienia: " + sum + " zł");
             }
-            else
-            {
-                Console.WriteLine("Zamówienie zostało anulowane");
-            }
+            positions.Clear();
+            sum = 0;
+        }
+
+        public void ClearOrder()
+        {
+            positions.Clear();
+            sum = 0;
         }
     }
 }
