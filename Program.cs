@@ -65,7 +65,7 @@ class Program
                 if (uInput < exit)
                 {
                     Array.ForEach(_menu.categories[iSelectedCategory].GetDishes(), Console.WriteLine);
-                    Console.WriteLine("Naciśnij enter, by wrócić");
+                    Console.WriteLine("Naciśnij dowolny klawisz, by wrócić");
                     Console.ReadKey();
                     Console.Clear();
                     goto case "1";
