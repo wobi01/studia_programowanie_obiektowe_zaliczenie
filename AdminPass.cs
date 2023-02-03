@@ -16,11 +16,8 @@ class AdminPass
         }
         else
         {
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                writer.WriteLine("admin");
+                File.WriteAllText(filePath, "admin");
                 adminpass = "admin";
-            }
         }
     }
 
