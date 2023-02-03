@@ -79,7 +79,7 @@ class Program
             case "2":
                 Console.Clear();
                 Console.Write("Wpisz nazwę wyszukiwanego dania: ");
-                _menu.SearchByName(Console.ReadLine()).ForEach(i => Console.WriteLine(i.ToString()));
+                _menu.SearchByName(Console.ReadLine().ToLower()).ForEach(i => Console.WriteLine(i.ToString()));
                 Console.WriteLine("Naciśnij enter by wrócić do menu");
                 Console.ReadKey();
                 Console.Clear();

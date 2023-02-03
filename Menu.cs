@@ -17,7 +17,7 @@ namespace studia_programowanie_obietkowe_zaliczenie
             {
                 foreach (Dish d in c.Dishes)
                 {
-                    if (d.Name.Contains(name))
+                    if (d.Name.ToLower().Contains(name))
                         result.Add(String.Format("{0} - {1} zł\n", d.Name, Convert.ToString(d.Price)));
                 }
             }
