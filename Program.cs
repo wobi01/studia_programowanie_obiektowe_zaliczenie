@@ -25,6 +25,10 @@ class Program
         _menu.AddCategory(soup);
         _menu.AddCategory(meat);
         _menu.AddCategory(starter);
+        _menu.categories[0].AddDish(Dish.DishType.Fish, "Sandacz", 25.0);
+        _menu.categories[1].AddDish(Dish.DishType.Soup, "Żurek", 7.0);
+        _menu.categories[2].AddDish(Dish.DishType.Meat, "Schabowy", 12.0);
+        _menu.categories[3].AddDish(Dish.DishType.Starter, "Bułeczki", 4.0);
         AskUserForAction();
     }
 
