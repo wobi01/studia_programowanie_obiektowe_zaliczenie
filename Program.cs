@@ -40,6 +40,8 @@ class Program
         Console.WriteLine("3. Złóż zamówienie");
         Console.WriteLine("4. Panel administracyjny");
         Console.WriteLine("5. Zakończ program");
+        Console.WriteLine("//Projekt zaliczeniowy");
+        Console.WriteLine("//Wojciech Biskup II rok NST informatyka nr albumu 26924");
         Console.WriteLine("____________________________________________");
         Console.Write("Wybór: ");
         switch (Console.ReadLine())
