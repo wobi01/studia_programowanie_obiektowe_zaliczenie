@@ -100,75 +100,138 @@ class Program
                 switch (selectedOption)
                 {
                     case 1:
-                        Console.Clear();
-                        Console.WriteLine("Wybierz danie rybne:");
-                        Array.ForEach(_menu.categories[0].GetDishes(), Console.WriteLine);
-                        Console.WriteLine("Wybierz danie (podaj jego numer):");
-                        int selectedDish = int.Parse(Console.ReadLine());
-                        _order.AddPosition(_menu.categories[0].GetDish(selectedDish));
-                        Console.Clear();
-                        Console.WriteLine("Danie zostało poprawnie dodane");
-                        break;
-                    case 2:
-                        Console.Clear();
-                        Console.WriteLine("Wybierz zupę:");
-                        Array.ForEach(_menu.categories[1].GetDishes(), Console.WriteLine);
-                        Console.WriteLine("Wybierz danie (podaj jego numer):");
-                        int selectedDish2 = int.Parse(Console.ReadLine());
-                        _order.AddPosition(_menu.categories[1].GetDish(selectedDish2));
-                        Console.Clear();
-                        Console.WriteLine("Danie zostało poprawnie dodane");
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.WriteLine("Wybierz danie mięsne:");
-                        Array.ForEach(_menu.categories[2].GetDishes(), Console.WriteLine);
-                        Console.WriteLine("Wybierz danie (podaj jego numer):");
-                        int selectedDish3 = int.Parse(Console.ReadLine());
-                        _order.AddPosition(_menu.categories[2].GetDish(selectedDish3));
-                        Console.Clear();
-                        Console.WriteLine("Danie zostało poprawnie dodane");
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Console.WriteLine("Wybierz przystawkę:");
-                        Array.ForEach(_menu.categories[3].GetDishes(), Console.WriteLine);
-                        Console.WriteLine("Wybierz przystawkę (podaj jej numer):");
-                        int selectedDish4 = int.Parse(Console.ReadLine());
-                        _order.AddPosition(_menu.categories[3].GetDish(selectedDish4));
-                        Console.Clear();
-                        Console.WriteLine("Danie zostało poprawnie dodane");
-                        break;
-                    case 5:
-                        Console.Clear();
-                        Console.WriteLine("Aktualna zawartość twojego zamówienia:");
-                        _order.Summary();
-                        Console.WriteLine("By usunąć pozycję ze swojego zamówienia podaj jej numer: ");
-                        int DishToDeleteChoice = int.Parse(Console.ReadLine());
-                        _order.RemovePosition(DishToDeleteChoice);
-                        Console.Clear();
-                        Console.WriteLine("Danie zostało poprawnie usunięte");
-                        break;
-                    case 6:
-                        Console.Clear();
-                        Console.WriteLine("Aktualna zawartość twojego zamówienia:");
-                        _order.Summary();
-                        break;
-                    case 7:
-                        Console.Clear();
-                        _order.Summary();
-                        Console.WriteLine("Czy zamówienie się zgadza i chcesz je potwierdzić? (T\\N)");
-                        string choice = Console.ReadLine();
-                        if (choice.ToLower() == "t")
+                        if (_menu.categories[0].GetDishes().Count() == 0)
                         {
-                            _order.Confirmation();
-                            AskUserForAction();
+                            Console.Clear();
+                            Console.WriteLine("Brak dań z wybranej kategori");
+                            break;
                         }
                         else
                         {
-                            Console.WriteLine("Wracam do składania zamówienia");
+                            Console.Clear();
+                            Console.WriteLine("Wybierz danie rybne:");
+                            Array.ForEach(_menu.categories[0].GetDishes(), Console.WriteLine);
+                            Console.WriteLine("Wybierz danie (podaj jego numer):");
+                            int selectedDish = int.Parse(Console.ReadLine());
+                            _order.AddPosition(_menu.categories[0].GetDish(selectedDish));
+                            Console.Clear();
+                            Console.WriteLine("Danie zostało poprawnie dodane");
+                            break;
                         }
-                        break;
+                    case 2:
+                        if (_menu.categories[1].GetDishes().Count() == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Brak dań z wybranej kategori");
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Wybierz zupę:");
+                            Array.ForEach(_menu.categories[1].GetDishes(), Console.WriteLine);
+                            Console.WriteLine("Wybierz danie (podaj jego numer):");
+                            int selectedDish2 = int.Parse(Console.ReadLine());
+                            _order.AddPosition(_menu.categories[1].GetDish(selectedDish2));
+                            Console.Clear();
+                            Console.WriteLine("Danie zostało poprawnie dodane");
+                            break;
+                        }
+                    case 3:
+                        if (_menu.categories[2].GetDishes().Count() == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Brak dań z wybranej kategori");
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Wybierz danie mięsne:");
+                            Array.ForEach(_menu.categories[2].GetDishes(), Console.WriteLine);
+                            Console.WriteLine("Wybierz danie (podaj jego numer):");
+                            int selectedDish3 = int.Parse(Console.ReadLine());
+                            _order.AddPosition(_menu.categories[2].GetDish(selectedDish3));
+                            Console.Clear();
+                            Console.WriteLine("Danie zostało poprawnie dodane");
+                            break;
+                        }
+                    case 4:
+                        if (_menu.categories[3].GetDishes().Count() == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Brak dań z wybranej kategori");
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Wybierz przystawkę:");
+                            Array.ForEach(_menu.categories[3].GetDishes(), Console.WriteLine);
+                            Console.WriteLine("Wybierz przystawkę (podaj jej numer):");
+                            int selectedDish4 = int.Parse(Console.ReadLine());
+                            _order.AddPosition(_menu.categories[3].GetDish(selectedDish4));
+                            Console.Clear();
+                            Console.WriteLine("Danie zostało poprawnie dodane");
+                            break;
+                        }
+                    case 5:
+                        if (_order.OrderCount() == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Twoje zamówienie jest puste!");
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Aktualna zawartość twojego zamówienia:");
+                            _order.Summary();
+                            Console.WriteLine("By usunąć pozycję ze swojego zamówienia podaj jej numer: ");
+                            int DishToDeleteChoice = int.Parse(Console.ReadLine());
+                            _order.RemovePosition(DishToDeleteChoice);
+                            Console.Clear();
+                            Console.WriteLine("Danie zostało poprawnie usunięte");
+                            break;
+                        }
+                    case 6:
+                        if (_order.OrderCount() == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Twoje zamówienie jest puste!");
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Aktualna zawartość twojego zamówienia:");
+                            _order.Summary();
+                            break;
+                        }
+                    case 7:
+                        if (_order.OrderCount() == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Twoje zamówienie jest puste!");
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            _order.Summary();
+                            Console.WriteLine("Czy zamówienie się zgadza i chcesz je potwierdzić? (T\\N)");
+                            string choice = Console.ReadLine();
+                            if (choice.ToLower() == "t")
+                            {
+                                _order.Confirmation();
+                                AskUserForAction();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wracam do składania zamówienia");
+                            }
+                            break;
+                        }
                     case 8:
                         Console.WriteLine("Czy na pewno chcesz anulować zamówienie? (T\\N)");
                         if (Console.ReadLine().ToLower() == "t")

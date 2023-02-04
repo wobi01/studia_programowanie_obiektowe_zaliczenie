@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace studia_programowanie_obietkowe_zaliczenie
 {
+
     public class Dish
     {
 

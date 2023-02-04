@@ -63,5 +63,11 @@ namespace studia_programowanie_obietkowe_zaliczenie
             positions.Clear();
             sum = 0;
         }
+
+        public int OrderCount()
+        {
+            return positions.Count();
+        }
     }
+
 }

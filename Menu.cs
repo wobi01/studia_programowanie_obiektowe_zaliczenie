@@ -56,5 +56,6 @@ namespace studia_programowanie_obietkowe_zaliczenie
             return list;
         }
     }
+
 }
 

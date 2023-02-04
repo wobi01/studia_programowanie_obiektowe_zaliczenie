@@ -16,6 +16,7 @@ namespace studia_programowanie_obietkowe_zaliczenie
         {
             Name = name;
         }
+
         public void AddDish(DishType type, string name, double price)
         {
             Dish dish = new Dish();
